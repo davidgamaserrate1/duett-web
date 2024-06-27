@@ -1,8 +1,8 @@
 import './layout.styles.css'
 
-import { LayoutProps } from "./layout.types";
+import { ILayoutProps } from "./layout.types";
 
-export function Layout ({ children, image }: LayoutProps ) {
+export function Layout ({ children, image }: ILayoutProps ) {
     return (
         <div className="container">
             <div className="layout_wrapper">

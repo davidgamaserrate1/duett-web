@@ -1,0 +1,27 @@
+.login_form{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+}
+
+.login-header{
+    margin: 32px;
+    text-align: left;
+    animation: fadeInUp 0.9s ease-in-out forwards;
+    
+}
+.login-header h1 {
+    font-weight: bold;
+    font-size: 24px;
+    color: var(--primary-brand-color)
+}
+
+.login-header h2 {
+    text-align: left;
+}
+
+.button_login{
+    margin-top: 32px;
+}

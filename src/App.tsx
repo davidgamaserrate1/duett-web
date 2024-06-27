@@ -1,12 +1,11 @@
-import './reset.css'
+import './styles/reset.css'
+import './styles/global.css'
 
 import { RoutesApplication } from './routes';
 
 function App() {
   return (
-    <>
-      <RoutesApplication />   
-    </>
+    <RoutesApplication />   
   );
 }
 
