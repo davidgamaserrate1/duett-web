@@ -1,15 +1,11 @@
-import React from 'react';
-import './reset.css' 
-import loginImg from './assets/login.jpg'
-import { Layout } from './components/Laytout';
+import './reset.css'
 
+import { RoutesApplication } from './routes';
 
 function App() {
   return (
     <>
-      <Layout image={loginImg}>
-        <h1>oi</h1>
-      </Layout>      
+      <RoutesApplication />   
     </>
   );
 }

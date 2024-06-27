@@ -1,10 +1,6 @@
-import React from "react";
-import './layout-styles.css'
+import './layout.styles.css'
 
-interface LayoutProps {
-    children: React.ReactNode;
-    image: string;
-}
+import { LayoutProps } from "./layout.types";
 
 export function Layout ({ children, image }: LayoutProps ) {
     return (
