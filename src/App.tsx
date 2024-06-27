@@ -1,11 +1,16 @@
 import React from 'react';
 import './reset.css' 
+import loginImg from './assets/login.jpg'
+import { Layout } from './components/Laytout';
+
 
 function App() {
   return (
-    <div className="App">
-      App
-    </div>
+    <>
+      <Layout image={loginImg}>
+        <h1>oi</h1>
+      </Layout>      
+    </>
   );
 }
 

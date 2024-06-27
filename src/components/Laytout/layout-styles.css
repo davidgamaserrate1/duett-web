@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.layout_wrapper {
+    transition: all 2s ease-in;
+    display: flex;
+    margin: auto auto;
+    max-width: 825px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 1px 4px 22px rgb(1, 1, 1, 0.2);
+    animation: fadeInUp 0.5s ease-in-out forwards;
+}
+
+.image_container {
+    max-width: 474px
+}
+
+.illustration_image {
+    max-width: 474px;
+    max-height: 474px;
+    animation: fadeInUp 0.5s ease-in-out forwards;
+}
+
+.form_container {
+    min-width: 307px;
+    max-width: 307px;
+    background-color: #F3F3F3;
+    height: 509px;
+    border-radius: 10px;
+    margin: 16px;
+    animation: fadeInUp 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
