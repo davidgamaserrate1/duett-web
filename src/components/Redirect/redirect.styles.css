@@ -1,12 +1,12 @@
 .link_redirect{
     display: flex;
-    gap: 16px;
     font-size: 16px;
 }
 
 .link_redirect span span {
     color: var(--primary-brand-color);
-    font-weight: bold;    
+    font-weight: bold;
+    margin-left: 4px;   
 }
 
 .link_redirect span span:hover {

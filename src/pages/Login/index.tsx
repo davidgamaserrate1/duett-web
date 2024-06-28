@@ -41,13 +41,9 @@ export function Login() {
                 <Form className='login_form'  id='2'>
                     <Input placeholderText='Email' name={"mail"} type={"text"} icon={CiMail} props={values}/>
                     <Input placeholderText='Senha' name={"senha"} type={"password"} icon={CiLock} props={values}/>
-                    <div className='recover_password'>
-                        <Redirect  textRedirect='recuperar senha' urlRedirect='recuperar-senha' />  
-                    </div>   
-
                     <div className="button_login">
                         <Button  disabled={isSubmitting} >
-                            Enviar
+                            Entrar
                         </Button>
                     </div>
                     <Redirect firstText='Não possui acesso?' textRedirect='Cadastre-se' urlRedirect='cadastrar' />                    

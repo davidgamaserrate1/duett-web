@@ -65,7 +65,7 @@ export function SignUp() {
                     <Select name="profile" options={profileOptions} />
                     <div  className="button_signup">
                         <Button  disabled={isSubmitting} >
-                            Enviar
+                            Salvar
                         </Button>
                     </div>
                     <Redirect firstText='Possui acesso?' textRedirect='Entre' urlRedirect='login' />                    
