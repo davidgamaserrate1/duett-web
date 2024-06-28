@@ -20,8 +20,9 @@
 
 .login-header h2 {
     text-align: left;
+    margin-top: 4px;
 }
 
 .button_login{
-    margin-top: 32px;
+    margin-top: 144px;
 }

@@ -16,15 +16,15 @@ export function Login() {
         email: "",
         senha: "",
     }
-
+    
     const validationSchema = Yup.object({
-        email: Yup.string().required("Informe o email"),
+        email: Yup.string().required("Informe seu email"),
         senha: Yup.string().required("Informe sua senha"),
     })
 
-    const handleSubmit = (values: any, { setSubmitting }: any)  =>{
+    const handleSubmit = (values: any, {  isSubmitting }: any)  =>{
         console.log(values)
-        setSubmitting(true)
+        isSubmitting(false)
     }
 
     return (
@@ -43,7 +43,7 @@ export function Login() {
                     <Input  name={"email"} type={"text"} icon={CiMail} props={values}/>
                     <Input  name={"senha"} type={"password"} icon={CiLock} props={values}/>
                     <div className="button_login">
-                        <Button disabled={isSubmitting} >
+                        <Button  disabled={isSubmitting} >
                             Enviar
                         </Button>
                     </div>
