@@ -1,4 +1,5 @@
 .header{
+    min-width: 210px;
     width: 100%;
     background-color: var(--primary-brand-color);
     height: 80px;
@@ -19,13 +20,7 @@
     left: 32px;
 }
 
-.profile_wrap {
-    position: relative;
-    gap: 8px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
+
 
 .profile_admin_settings{
     display: flex;
@@ -36,46 +31,42 @@
     right: 32px;
 }
 
-.home_icon, .profile_icon{
+.home_icon  {
     font-size: 24px;
 }
-
-.profile {
-    gap: 8px;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-}
  
-.header-home:hover{
-    cursor: pointer;
-    text-decoration: underline;
-}
 
 .open {
     animation: fadeInRotate 0.2s ease-in-out forwards;
     transform: rotate(180deg);
 }
 
-.profile_options{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;   
-    align-items: center;
-    padding: 8px;
-    position: absolute;
-    top: 40px;
-    right: 0;
-    background-color: #fff;
-    color: rgba(0, 0, 0, 0.5);
-    width: 150px;     
-    border-radius: 4px;
-    text-align: right;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-    animation: fadeInUp 0.2s ease-in-out forwards;
+
+
+@media (max-width:586px) {
+    .profile_admin_settings{
+        gap: 2px;
+    }
+
+    .header{
+        font-size: 12px;
+    }
 }
 
-.profile_options div:hover{
-    cursor: pointer;
-    text-decoration: underline;
+@media (max-width:338px) {
+    .header{
+        flex-wrap: wrap;
+    }   
+
+    .home, .profile_admin_settings{
+        flex-wrap: wrap;
+    }
+    .home{
+        width: 100px;
+        left:8px;
+    }
+    .profile_admin_settings{
+        width: 120px;
+        right:8px;
+    }
 }

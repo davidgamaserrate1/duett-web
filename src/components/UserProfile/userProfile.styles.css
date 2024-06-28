@@ -1,0 +1,45 @@
+.profile {
+    gap: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.profile_wrap {
+    position: relative;
+    gap: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.profile_icon{
+    font-size: 24px;
+}
+
+.open {
+    animation: fadeInRotate 0.2s ease-in-out forwards;
+    transform: rotate(180deg);
+}
+.profile_options{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;   
+    align-items: center;
+    padding: 8px;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.5);
+    width: 150px;     
+    border-radius: 4px;
+    text-align: right;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 0.2s ease-in-out forwards;
+}
+
+.profile_options div:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}

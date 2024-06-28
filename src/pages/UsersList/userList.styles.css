@@ -1,0 +1,13 @@
+.table_section{
+    min-height: 490px;
+    display: flex;    
+    justify-content: center;
+    align-items: center;
+    margin-top: 128px;    
+}
+
+@media (max-width:586px) {
+    .table_section{
+        margin-top: 0px; 
+    }
+}

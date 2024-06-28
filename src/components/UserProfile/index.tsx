@@ -1,3 +1,5 @@
+import './userProfile.styles.css'
+
 import { IoMdArrowDropdown, IoMdSettings } from "react-icons/io"
 
 import { CiLogout } from "react-icons/ci"
