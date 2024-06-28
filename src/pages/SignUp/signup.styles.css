@@ -1,0 +1,11 @@
+.signup_form{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+ 
+.button_signup{
+    margin-top: 32px;
+}

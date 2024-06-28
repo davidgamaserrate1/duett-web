@@ -9,16 +9,18 @@ import { CiLock } from "react-icons/ci";
 import { CiMail } from "react-icons/ci";
 import { Input } from '../../components/Input';
 import { Layout } from '../../components/Laytout';
+import { Redirect } from '../../components/Redirect';
+import { Tittle } from '../../components/Tittle';
 import loginImg from '../../assets/login.jpg'
 
 export function Login() {
     const initialValues = {
-        email: "",
+        mail: "",
         senha: "",
     }
     
     const validationSchema = Yup.object({
-        email: Yup.string().required("Informe seu email"),
+        mail: Yup.string().required("Informe seu email"),
         senha: Yup.string().required("Informe sua senha"),
     })
 
@@ -26,30 +28,33 @@ export function Login() {
         console.log(values)
         isSubmitting(false)
     }
-
+   
     return (
     <Layout image={loginImg}>
-        <div className='login-header'>
-            <h1>Seja bem vindo!</h1>
-            <h2>Informe seus dados  para entrar</h2>
-        </div>
+        <Tittle tittle='Seja bem vindo!' subtittle='Informe seus dados  para entrar' />         
         <Formik 
             initialValues={initialValues} 
             onSubmit={handleSubmit}
             validationSchema={validationSchema}
         >
             {({  values, isSubmitting }) =>(
-                <Form className='login_form'>
-                    <Input  name={"email"} type={"text"} icon={CiMail} props={values}/>
-                    <Input  name={"senha"} type={"password"} icon={CiLock} props={values}/>
+                <Form className='login_form'  id='2'>
+                    <Input placeholderText='Email' name={"mail"} type={"text"} icon={CiMail} props={values}/>
+                    <Input placeholderText='Senha' name={"senha"} type={"password"} icon={CiLock} props={values}/>
+                    <div className='recover_password'>
+                        <Redirect  textRedirect='recuperar senha' urlRedirect='recuperar-senha' />  
+                    </div>   
+
                     <div className="button_login">
                         <Button  disabled={isSubmitting} >
                             Enviar
                         </Button>
                     </div>
+                    <Redirect firstText='Não possui acesso?' textRedirect='Cadastre-se' urlRedirect='cadastrar' />                    
                 </Form>
             )}
         </Formik>
+
     </Layout>      
     );
     }

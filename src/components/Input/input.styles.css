@@ -1,12 +1,9 @@
-
-
 .input_error{
     position: absolute;
-    margin-top: -55px;
-    height: 20px;
+    top: -14px;
+    left: 8px;
     color: red;
-    display: inline;
-    width: 100%;
+    opacity: 0.6;
     font-size: 12px;
     font-weight: bold;
     animation: fadeInUp 0.2s ease-in-out forwards;
@@ -18,26 +15,20 @@
     pointer-events: none;
     color: #333333;
     animation: fadeInUp 0.6s ease-in-out forwards;
-
 }
+
 .input_container{
     position: relative;
     display: flex;
-    position: relative;
     align-items: center;
     animation: fadeInUp 0.6s ease-in-out forwards;
 }
+
 .input_field{
     width: 229px;
-    height: 40px;
+    height: 30px;
     border-radius: 4px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     padding-left: 32px;
     animation: fadeInUp 0.3s ease-in-out ;
-}
-
-
-
-.required_label{
-    color: #333333;
 }

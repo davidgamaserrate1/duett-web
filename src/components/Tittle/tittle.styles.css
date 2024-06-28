@@ -1,0 +1,16 @@
+.tittle-header{
+    margin: 32px;
+    text-align: left;
+    animation: fadeInUp 0.9s ease-in-out forwards;
+}
+
+.tittle-header h1 {
+    font-weight: bold;
+    font-size: 24px;
+    color: var(--primary-brand-color)
+}
+
+.tittle-header h2 {
+    text-align: left;
+    margin-top: 4px;
+}

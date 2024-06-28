@@ -6,23 +6,12 @@
     gap: 16px;
 }
 
-.login-header{
-    margin: 32px;
-    text-align: left;
-    animation: fadeInUp 0.9s ease-in-out forwards;
-    
-}
-.login-header h1 {
-    font-weight: bold;
-    font-size: 24px;
-    color: var(--primary-brand-color)
-}
-
-.login-header h2 {
-    text-align: left;
-    margin-top: 4px;
-}
-
 .button_login{
     margin-top: 144px;
+}
+
+.recover_password{
+    text-align: left;
+    width: 100%;
+    margin-left: 32px;
 }
