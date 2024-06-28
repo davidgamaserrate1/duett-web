@@ -46,33 +46,35 @@ export function SignUp() {
     ];
 
     return (
-    <LayoutForm image={signUp}>
-        <Tittle tittle='Cadastre-se' />     
-        
-        <Formik 
-            initialValues={initialValues} 
-            onSubmit={handleSubmit}
-            validationSchema={validationSchema}
-        >
-            {({  values, isSubmitting }) =>(
-                <Form className='signup_form'>
-                    <Input  name={"name"} placeholderText="Nome"  type={"text"} icon={CiMail} props={values}/>
-                    <Input name={"cpf"} placeholderText= "Cpf"  type={"text"} icon={CiLock} props={values}/>
-                    <Input name={"mail"} placeholderText= "Email"  type={"text"} icon={CiMail} props={values}/>
-                    <Input name={"password"}  placeholderText= "Senha" type={"password"} icon={CiLock} props={values}/>
-                    <Input name={"password_confirmation"}  placeholderText="Confirme a senha" type={"password"} icon={CiLock} props={values}/>
-                    
-                    <Select name="profile" options={profileOptions} />
-                    <div  className="button_signup">
-                        <Button  disabled={isSubmitting} >
-                            Salvar
-                        </Button>
-                    </div>
-                    <Redirect firstText='Possui acesso?' textRedirect='Entre' urlRedirect='login' />                    
-                </Form>
-            )}
-        </Formik>
-    </LayoutForm>      
+    <div className='signup_container'>
+        <LayoutForm image={signUp}>
+            <Tittle tittle='Cadastre-se' />     
+            
+            <Formik 
+                initialValues={initialValues} 
+                onSubmit={handleSubmit}
+                validationSchema={validationSchema}
+            >
+                {({  values, isSubmitting }) =>(
+                    <Form className='signup_form'>
+                        <Input  name={"name"} placeholderText="Nome"  type={"text"} icon={CiMail} props={values}/>
+                        <Input name={"cpf"} placeholderText= "Cpf"  type={"text"} icon={CiLock} props={values}/>
+                        <Input name={"mail"} placeholderText= "Email"  type={"text"} icon={CiMail} props={values}/>
+                        <Input name={"password"}  placeholderText= "Senha" type={"password"} icon={CiLock} props={values}/>
+                        <Input name={"password_confirmation"}  placeholderText="Confirme a senha" type={"password"} icon={CiLock} props={values}/>
+                        
+                        <Select name="profile" options={profileOptions} />
+                        <div  className="button_signup">
+                            <Button  disabled={isSubmitting} >
+                                Salvar
+                            </Button>
+                        </div>
+                        <Redirect firstText='Possui acesso?' textRedirect='Entre' urlRedirect='login' />                    
+                    </Form>
+                )}
+            </Formik>
+        </LayoutForm>    
+    </div>  
     );
     }
       

@@ -1,3 +1,6 @@
+.signup_container{
+    height: 100vh;
+}
 .signup_form{
     display: flex;
     justify-content: center;

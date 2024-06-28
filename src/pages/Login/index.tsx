@@ -30,7 +30,8 @@ export function Login() {
     }
    
     return (
-    <LayoutForm image={loginImg}>
+    <div className='login_container'>
+        <LayoutForm image={loginImg}>
         <Tittle tittle='Seja bem vindo!' subtittle='Informe seus dados  para entrar' />         
         <Formik 
             initialValues={initialValues} 
@@ -51,7 +52,8 @@ export function Login() {
             )}
         </Formik>
 
-    </LayoutForm>      
+    </LayoutForm>     
+    </div> 
     );
     }
       

@@ -24,5 +24,10 @@ time, mark, audio, video {
 }
  
   body a:link, a:visited {
-	text-decoration: none; /* Remove a sublinhado, se desejado */
+	text-decoration: none; 
   }
+
+  html, body {
+    min-height: 100vh;
+    margin: 0;
+}
