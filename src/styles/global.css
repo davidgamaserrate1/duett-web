@@ -2,6 +2,10 @@
     --primary-brand-color: #4146FF;
   }
 
+body *, html * {
+    font-family: Quicksand, sans-serif !important;
+}
+
   @keyframes fadeInUp {
     0% {
         opacity: 0;
