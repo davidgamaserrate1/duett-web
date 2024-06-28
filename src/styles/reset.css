@@ -22,3 +22,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
  
 }
+ 
+  body a:link, a:visited {
+	text-decoration: none; /* Remove a sublinhado, se desejado */
+  }

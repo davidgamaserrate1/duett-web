@@ -8,8 +8,8 @@ import { Button } from '../../components/Button';
 import { CiLock } from "react-icons/ci";
 import { CiMail } from "react-icons/ci";
 import { Input } from '../../components/Input';
-import { Layout } from '../../components/Laytout';
-import { Redirect } from '../../components/Redirect';
+import { LayoutForm } from '../../components/LayoutForm';
+import { Redirect } from '../../components/RedirectText';
 import { Select } from '../../components/Select';
 import { Tittle } from '../../components/Tittle';
 import signUp from '../../assets/signUp.jpg'
@@ -46,7 +46,7 @@ export function SignUp() {
     ];
 
     return (
-    <Layout image={signUp}>
+    <LayoutForm image={signUp}>
         <Tittle tittle='Cadastre-se' />     
         
         <Formik 
@@ -72,7 +72,7 @@ export function SignUp() {
                 </Form>
             )}
         </Formik>
-    </Layout>      
+    </LayoutForm>      
     );
     }
       

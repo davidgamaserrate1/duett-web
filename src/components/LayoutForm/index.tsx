@@ -1,8 +1,8 @@
-import './layout.styles.css'
+import './layoutForm.styles.css'
 
-import { ILayoutProps } from "./layout.types";
+import { ILayoutProps } from "./layoutForm.types";
 
-export function Layout ({ children, image }: ILayoutProps ) {
+export function LayoutForm ({ children, image }: ILayoutProps ) {
     return (
         <div className="container">
             <div className="layout_wrapper">

@@ -1,0 +1,50 @@
+.admin_profile{
+    gap: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.admin_wrap{
+    position: relative;
+    gap: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.admin_icon {
+    font-size: 24px;
+}
+
+.profile_setting:hover{
+    cursor: pointer;
+}
+ 
+.open {
+    animation: fadeInRotate 0.2s ease-in-out forwards;
+    transform: rotate(180deg);
+}
+
+
+.admin_options{
+    display: flex;
+    align-items: center;
+    gap: 4px;    
+    padding: 8px;
+    position: absolute;
+    top: 40px;
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.5);
+    width: 176px;     
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 0.2s ease-in-out forwards;
+}
+
+
+.admin_options:hover{
+    cursor: pointer;
+    background-color: #f0f0f0;
+}

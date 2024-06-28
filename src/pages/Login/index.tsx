@@ -8,8 +8,8 @@ import { Button } from '../../components/Button';
 import { CiLock } from "react-icons/ci";
 import { CiMail } from "react-icons/ci";
 import { Input } from '../../components/Input';
-import { Layout } from '../../components/Laytout';
-import { Redirect } from '../../components/Redirect';
+import { LayoutForm } from '../../components/LayoutForm';
+import { Redirect } from '../../components/RedirectText';
 import { Tittle } from '../../components/Tittle';
 import loginImg from '../../assets/login.jpg'
 
@@ -30,7 +30,7 @@ export function Login() {
     }
    
     return (
-    <Layout image={loginImg}>
+    <LayoutForm image={loginImg}>
         <Tittle tittle='Seja bem vindo!' subtittle='Informe seus dados  para entrar' />         
         <Formik 
             initialValues={initialValues} 
@@ -51,7 +51,7 @@ export function Login() {
             )}
         </Formik>
 
-    </Layout>      
+    </LayoutForm>      
     );
     }
       

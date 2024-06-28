@@ -1,6 +1,6 @@
-import './redirect.styles.css'
+import './redirectText.styles.css'
 
-import { IRedirectProps } from "./redirect.types"
+import { IRedirectProps } from "./redirectText.types"
 import { useNavigate } from "react-router-dom"
 
 export function Redirect({firstText, textRedirect, urlRedirect}: IRedirectProps){
