@@ -1,0 +1,60 @@
+.header{
+    width: 100%;
+    background-color: var(--primary-brand-color);
+    height: 80px;
+    display: flex;
+    font-weight: bold;
+    position: relative;
+    align-items: center; 
+    font-size: 18px; 
+    flex-wrap: wrap;
+}
+
+.home{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    position: absolute;
+    left: 32px;
+}
+
+.profile_wrap, .admin_wrap{
+    gap: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.profile_admin_settings{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    color: #fff;
+    position: absolute;
+    right: 32px;
+}
+
+.admin_icon, .home_icon, .profile_icon{
+    font-size: 24px;
+}
+
+.profile, .admin_profile{
+    gap: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+ 
+.header-home:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.profile_setting:hover{
+    cursor: pointer;
+}
+
+.open {
+    transform: rotate(180deg);
+}
