@@ -1,9 +1,11 @@
 import './tableUsers.styles.css'
 
+import { useEffect, useState } from 'react';
+
+import { GetUsersList } from '../../services/usersList.service';
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import { RiDeleteBin7Fill } from "react-icons/ri";
-import { useState } from 'react';
 
 const users = [
     {
@@ -53,6 +55,14 @@ const users = [
 
 export function TableUsers(){
     const [index, setIndex] = useState(1)
+
+    useEffect(()=>{
+        try{
+            GetUsersList()
+        }catch(error){
+            console.log(error)
+        }
+    },[])
 
     return (
        <>
