@@ -7,25 +7,33 @@ import { Form, Formik } from 'formik';
 import { Button } from '../../components/Button';
 import { CiLock } from "react-icons/ci";
 import { CiMail } from "react-icons/ci";
+import { ILogin } from '../../interfaces/LoginRequest';
+import { ILoginResponse } from '../../interfaces/LoginResponse';
 import { Input } from '../../components/Input';
 import { LayoutForm } from '../../components/LayoutForm';
 import { Redirect } from '../../components/RedirectText';
 import { Tittle } from '../../components/Tittle';
+import { login } from '../../services/auth.service';
 import loginImg from '../../assets/login.jpg'
 
 export function Login() {
     const initialValues = {
-        mail: "",
-        senha: "",
+        email: "",
+        password: "",
     }
     
     const validationSchema = Yup.object({
-        mail: Yup.string().required("Informe seu email"),
-        senha: Yup.string().required("Informe sua senha"),
+        email: Yup.string().required("Informe seu email"),
+        password: Yup.string().required("Informe sua senha"),
     })
 
-    const handleSubmit = (values: any, {  isSubmitting }: any)  =>{
-        console.log(values)
+
+    async function handleSubmit  ( {email, password }: ILogin, {  isSubmitting }: any)  {
+        const loginData : ILogin = { 
+            email, password
+        }
+        const loginResponse = await login(loginData)
+        console.log(loginResponse)
         isSubmitting(false)
     }
    
@@ -40,8 +48,8 @@ export function Login() {
         >
             {({  values, isSubmitting }) =>(
                 <Form className='login_form'  id='2'>
-                    <Input placeholderText='Email' name={"mail"} type={"text"} icon={CiMail} props={values}/>
-                    <Input placeholderText='Senha' name={"senha"} type={"password"} icon={CiLock} props={values}/>
+                    <Input placeholderText='Email' name={"email"} type={"text"} icon={CiMail} props={values}/>
+                    <Input placeholderText='Senha' name={"password"} type={"password"} icon={CiLock} props={values}/>
                     <div className="button_login">
                         <Button  disabled={isSubmitting} >
                             Entrar
