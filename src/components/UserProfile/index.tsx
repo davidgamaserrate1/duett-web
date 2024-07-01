@@ -6,10 +6,20 @@ import { CiLogout } from "react-icons/ci"
 import { FaRegUserCircle } from "react-icons/fa"
 import { Navigate } from "../Navigate"
 import { UserProfileProps } from "./userProfile.types"
+import { useAuth } from '../../context/Hooks/useAuth'
+import { useNavigate } from 'react-router-dom'
 
 const  user_name = 'David'
 
 export function UserProfile({ openSettings, changeSettings }: UserProfileProps){ 
+    const navigate = useNavigate()
+    const auth = useAuth()
+
+    function logout () {
+        auth.logout()
+        navigate('/login')
+    }
+
     return (
         <div className='profile' >
             <div className='profile_wrap'>
@@ -23,9 +33,9 @@ export function UserProfile({ openSettings, changeSettings }: UserProfileProps){
                         Alterar senha
                     </Navigate>
                     <CiLogout />
-                    <Navigate url="/login">
+                    <div onClick={() => logout()}>
                         Sair                        
-                    </Navigate>
+                    </div>
                 </div>}
             </div>
         </div>

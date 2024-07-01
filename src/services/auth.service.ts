@@ -1,13 +1,10 @@
+import { Api } from "./api.config";
 import { IErrorResponse } from "../interfaces/ErrorResponse";
-import { ILogin } from "../interfaces/LoginRequest";
-import { ILoginResponse } from "../interfaces/LoginResponse";
-import axios from "axios";
+import { IUser } from "../interfaces/authProvider";
 
-const API_LOGIN = "http://localhost:8080/auth/login"
-
-export async function login({ email, password }: ILogin): Promise<ILoginResponse | IErrorResponse> {
+export async function loginRequest(email: string, password: string) {
     try {
-      const response = await axios.post<ILoginResponse>(API_LOGIN, { email, password });
+      const response = await Api.post("auth/login", { email, password });
       
       return response.data;
       
@@ -22,5 +19,24 @@ export async function login({ email, password }: ILogin): Promise<ILoginResponse
             throw new Error('An unknown error occurred');
         }
     }
-  }
+}
   
+export function setUserLocaStorage(user:IUser){
+    localStorage.setItem('user', JSON.stringify(user))
+}
+
+export function removeUserLocaStorage(){
+    localStorage.removeItem('user')
+}
+
+export function getUserLocaStorage(){
+    const userLocalStorage = localStorage.getItem('user')
+
+    if(!userLocalStorage){
+        return null
+    }
+
+    const user = JSON.parse(userLocalStorage)
+
+    return user ?? null
+}

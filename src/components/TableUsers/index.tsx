@@ -1,8 +1,5 @@
 import './tableUsers.styles.css'
 
-import { useEffect, useState } from 'react';
-
-import { GetUsersList } from '../../services/usersList.service';
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import { RiDeleteBin7Fill } from "react-icons/ri";
@@ -54,15 +51,15 @@ const users = [
 ]
 
 export function TableUsers(){
-    const [index, setIndex] = useState(1)
-
-    useEffect(()=>{
-        try{
-            GetUsersList()
-        }catch(error){
-            console.log(error)
-        }
-    },[])
+    //const [index, setIndex] = useState(1)
+    const index = 1
+    // useEffect(()=>{
+    //     try{
+    //         GetUsersList()
+    //     }catch(error){
+    //         console.log(error)
+    //     }
+    // },[])
 
     return (
        <>
@@ -74,7 +71,7 @@ export function TableUsers(){
                 <th className='head_item' colSpan={2}>Pefil</th>
             </tr>
             {users.map((user) => 
-                <tr className='table_items underline'>
+                <tr className='table_items underline' key={user.id}>
                     <td className='item'>{user.name}</td>
                     <td className='item'>{user.mail}</td>
                     <td className='item'>{user.cpf}</td>

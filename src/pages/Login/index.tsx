@@ -8,15 +8,18 @@ import { Button } from '../../components/Button';
 import { CiLock } from "react-icons/ci";
 import { CiMail } from "react-icons/ci";
 import { ILogin } from '../../interfaces/LoginRequest';
-import { ILoginResponse } from '../../interfaces/LoginResponse';
 import { Input } from '../../components/Input';
 import { LayoutForm } from '../../components/LayoutForm';
 import { Redirect } from '../../components/RedirectText';
 import { Tittle } from '../../components/Tittle';
-import { login } from '../../services/auth.service';
 import loginImg from '../../assets/login.jpg'
+import { useAuth } from '../../context/Hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
 
 export function Login() {
+    const auth = useAuth()
+    const navigate = useNavigate()
+
     const initialValues = {
         email: "",
         password: "",
@@ -28,13 +31,14 @@ export function Login() {
     })
 
 
-    async function handleSubmit  ( {email, password }: ILogin, {  isSubmitting }: any)  {
-        const loginData : ILogin = { 
-            email, password
-        }
-        const loginResponse = await login(loginData)
-        console.log(loginResponse)
-        isSubmitting(false)
+    async function handleSubmit  ( {email, password }: ILogin )  {
+       try{
+            await auth.authenticate(email, password)
+            navigate('/home');
+            
+       }catch(error){
+            console.log(error)
+       }
     }
    
     return (
@@ -59,8 +63,7 @@ export function Login() {
                 </Form>
             )}
         </Formik>
-
-    </LayoutForm>     
+        </LayoutForm>     
     </div> 
     );
     }
