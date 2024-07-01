@@ -16,7 +16,6 @@ export function RoutesApplication(){
                 <Routes>
                     <Route path='/login' element={<Login/>}> </Route>
                     <Route path='/cadastrar' element={<SignUp/>}> </Route>
-
                     <Route path='/home' 
                         element={
                             <ProtectedLayout> 

@@ -1,18 +1,18 @@
-import axios from "axios";
+import { Api } from "./api.config";
 
-const API_USERS_LIST ="http://localhost:8080/admin/users"
+interface IUser {    
+    id?: string,
+    name?: string,
+    profile?: string,
+    token?: string,
+}
 
-export async function GetUsersList(token?:string){
-    if(!token)
-        token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsb2dpbi1hdXRoLWFwaSIsIm5hbWUiOiJkYXZpZCIsInByb2ZpbGUiOiJBRE1JTiIsInN1YiI6ImFkbWluIiwiZXhwIjoxNzE5Nzc2ODU1fQ.x0ppausFWir9wSTmr-ayj3yCRVdwhSTPzL4fK2_zulE'
-
-    
-    const headers ={
+export async function GetUsersList(token?:string): Promise<IUser[]>{
+    const headers = {
         'Authorization': `Bearer ${token}`
     }
-    const response = await axios.get(API_USERS_LIST, {
-        headers
-    })
+    const response = await Api.get('admin/users', { headers })
 
-    console.log(response.data)
+    return response.data
 }
+
