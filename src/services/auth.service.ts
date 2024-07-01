@@ -1,6 +1,7 @@
 import { Api } from "./api.config";
 import { IErrorResponse } from "../interfaces/ErrorResponse";
-import { IUser } from "../interfaces/authProvider";
+import { IUser } from "../interfaces/user";
+import { IUserContext } from "../interfaces/authProvider";
 
 export async function loginRequest(email: string, password: string) {
     try {
@@ -20,8 +21,14 @@ export async function loginRequest(email: string, password: string) {
         }
     }
 }
+
+export async function signupRequest(user: IUser) {
+    const response = await Api.post("auth/register", user);
+    console.log('response.data', response.data)  
+    return response.data; 
+}
   
-export function setUserLocaStorage(user:IUser){
+export function setUserLocaStorage(user:IUserContext){
     localStorage.setItem('user', JSON.stringify(user))
 }
 

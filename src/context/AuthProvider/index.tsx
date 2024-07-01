@@ -1,11 +1,11 @@
-import { IAuthProvider, IContext, IUser } from "../../interfaces/authProvider";
+import { IAuthProvider, IContext, IUserContext } from "../../interfaces/authProvider";
 import { createContext, useEffect, useState } from "react";
 import { getUserLocaStorage, loginRequest, removeUserLocaStorage, setUserLocaStorage } from "../../services/auth.service";
 
 export const AuthContext = createContext<IContext>({} as IContext)
 
 export const AuthProvider = ({children}: IAuthProvider) =>{ 
-    const [user, setUser]= useState<IUser | null> ()
+    const [user, setUser]= useState<IUserContext | null> ()
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -19,7 +19,6 @@ export const AuthProvider = ({children}: IAuthProvider) =>{
 
     async function authenticate(email: string, password: string) {
         const respose = await loginRequest(email, password) ;
-        
         const userDataContext = {
             id: respose.id,
             name: respose.name,
@@ -29,6 +28,11 @@ export const AuthProvider = ({children}: IAuthProvider) =>{
         
         setUser(userDataContext)
         setUserLocaStorage(userDataContext)
+        
+        if (!userDataContext.token){
+            return false
+        }
+        return true
     }
 
     function logout() {

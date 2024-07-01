@@ -1,13 +1,13 @@
-export interface IUser {    
+export interface IUserContext {    
     id?: string,
     name?: string,
     profile?: string,
     token?: string,
 }
 
-export interface IContext extends IUser{
+export interface IContext extends IUserContext{
     loading:boolean,
-    authenticate: (email:string, password:string)=>Promise<void>,
+    authenticate: (email:string, password:string)=>Promise<Boolean>,
     logout: () => void;
 }
 

@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 
 import { Form, Formik } from 'formik';
 
+import { AlertFeeback } from '../../components/AltertFeedback/indext';
 import { Button } from '../../components/Button';
 import { CiLock } from "react-icons/ci";
 import { CiMail } from "react-icons/ci";
@@ -15,8 +16,10 @@ import { Tittle } from '../../components/Tittle';
 import loginImg from '../../assets/login.jpg'
 import { useAuth } from '../../context/Hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 export function Login() {
+    const [error, setError] = useState<string | undefined>();
     const auth = useAuth()
     const navigate = useNavigate()
 
@@ -30,39 +33,49 @@ export function Login() {
         password: Yup.string().required("Informe sua senha"),
     })
 
-
-    async function handleSubmit  ( {email, password }: ILogin )  {
+    async function handleSubmit({email, password}: ILogin)  {
        try{
-            await auth.authenticate(email, password)
-            navigate('/home');
-            
-       }catch(error){
-            console.log(error)
+            const loginSuccessfully = await auth.authenticate(email, password)
+            if(loginSuccessfully){
+                navigate('/home');
+            }
+
+            setError('Credenciais inválidas')
+            setTimeout(() => {
+                setError(undefined);
+            }, 3000);
+
+       }catch(error:any){
+            setError(error)
+            setTimeout(() => {
+                setError(undefined);
+            }, 3000);
        }
     }
    
     return (
     <div className='login_container'>
         <LayoutForm image={loginImg}>
-        <Tittle tittle='Seja bem vindo!' subtittle='Informe seus dados  para entrar' />         
-        <Formik 
-            initialValues={initialValues} 
-            onSubmit={handleSubmit}
-            validationSchema={validationSchema}
-        >
-            {({  values, isSubmitting }) =>(
-                <Form className='login_form'  id='2'>
-                    <Input placeholderText='Email' name={"email"} type={"text"} icon={CiMail} props={values}/>
-                    <Input placeholderText='Senha' name={"password"} type={"password"} icon={CiLock} props={values}/>
-                    <div className="button_login">
-                        <Button  disabled={isSubmitting} >
-                            Entrar
-                        </Button>
-                    </div>
-                    <Redirect firstText='Não possui acesso?' textRedirect='Cadastre-se' urlRedirect='cadastrar' />                    
-                </Form>
-            )}
-        </Formik>
+            <Tittle tittle='Seja bem vindo!' subtittle='Informe seus dados  para entrar' />         
+            <Formik 
+                initialValues={initialValues} 
+                onSubmit={handleSubmit}
+                validationSchema={validationSchema}
+            >
+                {({  values, isSubmitting }) =>(
+                    <Form className='login_form' >
+                        <Input placeholderText='Email' name={"email"} type={"text"} icon={CiMail} props={values}/>
+                        <Input placeholderText='Senha' name={"password"} type={"password"} icon={CiLock} props={values}/>
+                        { error && <AlertFeeback type={'error'} message={error}/> }
+                        <div className="button_login">
+                            <Button  disabled={isSubmitting} >
+                                Entrar
+                            </Button>
+                        </div>
+                        <Redirect firstText='Não possui acesso?' textRedirect='Cadastre-se' urlRedirect='cadastrar' />                    
+                    </Form>
+                )}
+            </Formik>
         </LayoutForm>     
     </div> 
     );
