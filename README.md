@@ -47,6 +47,7 @@ src/
 │   ├── LayoutForm 
 │   ├── Modal 
 │   ├── Navigate 
+│   ├── NotFound 
 │   ├── ProtectedLayout 
 │   ├── RedirectText 
 │   ├── Select 
@@ -140,3 +141,10 @@ src/
 
 - Página acessível para administradores com lista de usuários cadastrados.
 - Funcionalidade para excluir usuários.
+
+
+
+### Design
+
+- O design deste projeto foi elaborado utilizando o Figma. [Link para o design no Figma](https://www.figma.com/design/vSWy46MVfb9VAcp0TEPT0U/Duett?node-id=16-228&t=eBjgSlWaRPJaae84-1).
+
