@@ -1,14 +1,30 @@
+.feedback_signup{
+    position: relative;
+     background-color: #fff;
+    bottom: 0;
+    right:  50px;
+    z-index: 9999;
+
+}
 .signup_container{
     height: 100vh;
 }
 .signup_form{
+    position: relative;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
-    gap: 12px;
+    gap: 4px;
+     
 }
  
 .button_signup{
-    margin-top: 32px;
+    margin-top: 18px;
+}
+
+.signup_feedback{
+    position: absolute;
+   bottom: 0;
+   left: 1;
 }

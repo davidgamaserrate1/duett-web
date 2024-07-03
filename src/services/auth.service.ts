@@ -24,9 +24,16 @@ export async function loginRequest(email: string, password: string) {
 }
 
 export async function signupRequest(user: Partial<IUser>) {
-    const response = await Api.post("auth/register", user);
-    console.log('response.data', response.data)  
-    return response.data; 
+    try{
+        const response = await Api.post("auth/register", user);
+      
+        return response.data
+    }catch (error:any) {
+        if (error.response && error.response.data) {
+            return(error.response.data)
+        }
+        return(error)
+    }
 }
 
 export async function changePasswordRequest({ token, id, old_password, new_password}: IChangePassowrdParams) {

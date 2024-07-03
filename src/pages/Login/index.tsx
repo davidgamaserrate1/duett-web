@@ -64,6 +64,7 @@ export function Login() {
                     <Form className='login_form' >
                         <Input placeholderText='Email' name={"email"} type={"text"} icon={CiMail} props={values}/>
                         <Input placeholderText='Senha' name={"password"} type={"password"} icon={CiLock} props={values}/>
+                         
                         { error && <AlertFeedback type={'error'} message={error}/> }
                         <div className="button_login">
                             <Button  disabled={isSubmitting} >
@@ -71,6 +72,7 @@ export function Login() {
                             </Button>
                         </div>
                         <Redirect firstText='Não possui acesso?' textRedirect='Cadastre-se' urlRedirect='cadastrar' />                    
+                        
                     </Form>
                 )}
             </Formik>

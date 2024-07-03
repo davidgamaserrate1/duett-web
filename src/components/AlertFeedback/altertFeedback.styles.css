@@ -1,25 +1,29 @@
 .alert_container{
     border-radius: 4px;
     animation: fadeInUp 0.2s ease-in-out forwards;     
-    position: fixed;
     border-radius: 10px;
+    margin: 4px auto;
+    width: 250px;
 }
 
 .error {
     border: 1px solid #d63117;
-    height: 24px;
+    min-height: 24px;
     padding: 8px;
     box-shadow: 8px 8px 22px #FFF2F0;
     display: flex;
     gap: 4px;
     border-radius: 10px;
     color: #d63117;
+    background-color: #ffff;
+    margin: auto auto;
+
 }
 
 .success {
     border: 1px solid #7fe21c;
-    height: 24px;
-    padding: 8px;
+    min-height: 24px;
+    padding: 4px;
     box-shadow: 8px 8px 22px #F6FFED;
     background-color: #F6FFED;
     display: flex;
@@ -29,6 +33,7 @@
     border-radius: 10px;
     color: #7fe21c;
     font-size: 18px;    
+    margin: auto auto;
 }
 
 .alert_icon_error{

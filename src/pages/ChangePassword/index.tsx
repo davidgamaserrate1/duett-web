@@ -38,7 +38,10 @@ export function ChangePassword() {
 
     const validationSchema = Yup.object({
         old_password: Yup.string().required('Informe sua senha atual'),
-        new_password: Yup.string().required('Informe a nova senha'),
+        new_password: Yup
+        .string()
+        .required('Informe a nova senha')
+        .notOneOf([Yup.ref('old_password')], 'A nova senha não pode ser igual à senha atual'),
         new_password_confirmation: Yup.string()
             .oneOf([Yup.ref('new_password')], 'As senhas devem ser iguais')
             .required('Confirme a nova senha'),

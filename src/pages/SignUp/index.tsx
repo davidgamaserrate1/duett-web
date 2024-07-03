@@ -4,19 +4,28 @@ import * as Yup from 'yup';
 
 import { Form, Formik } from 'formik';
 
+import { AlertFeedback } from '../../components/AlertFeedback/indext';
 import { Button } from '../../components/Button';
 import { CiLock } from "react-icons/ci";
 import { CiMail } from "react-icons/ci";
 import { IUser } from '../../interfaces/User';
 import { Input } from '../../components/Input';
+import { IoArrowBackOutline } from 'react-icons/io5';
 import { LayoutForm } from '../../components/LayoutForm';
 import { Redirect } from '../../components/RedirectText';
 import { Select } from '../../components/Select';
 import { TitleComponent } from '../../components/Title';
 import signUp from '../../assets/signUp.jpg'
 import { signupRequest } from '../../services/auth.service';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 export function SignUp() {
+    const [response, setResponse]=  useState<string | undefined>();
+    const [responseType, setResponseType] = useState<'success' | 'error' | undefined>();
+
+    const navigate = useNavigate()
+
     const initialValues = {
         name: '',
         cpf: '',
@@ -47,15 +56,35 @@ export function SignUp() {
             .required("Por, favor Selecione um perfil"),  
     });
 
-    async function handleSubmit  (user: Partial<IUser> ) {
-        const RegisterForm ={
-            name : user.name,
+    async function handleSubmit(user: Partial<IUser>) {
+        const RegisterForm = {
+            name: user.name,
             cpf: user.cpf,
             email: user.email,
-            password:user.password,
-            profile:user.profile,
+            password: user.password,
+            profile: user.profile,
         }
-        await signupRequest(RegisterForm)
+        const responseSignup = await signupRequest(RegisterForm)
+        setResponseType(responseSignup.id ? 'success' : 'error');
+        
+        if(responseSignup.id){
+            setResponseType( 'success');
+            setResponse( 'Cadastrado com sucesso');
+            redirectToLogin()
+        }
+        
+        setTimeout(() => {
+            
+            setResponseType(undefined);
+            setResponse(undefined);
+        }, 3000);
+    }
+    
+    
+    function redirectToLogin(){
+        setTimeout(() => {
+            navigate('/login')     
+        }, 1500);
     }
 
     const profileOptions = [
@@ -66,21 +95,27 @@ export function SignUp() {
     return (
     <div className='signup_container'>
         <LayoutForm image={signUp}>
+
+            <div className='back_home' onClick={()=>redirectToLogin()}> 
+                <IoArrowBackOutline /> Voltar
+            </div>
             <TitleComponent title='Cadastre-se' />     
+            
             <Formik 
                 initialValues={initialValues} 
                 onSubmit={handleSubmit}
                 validationSchema={validationSchema}
             >
-                {({  values, isSubmitting }) =>(
+                {({  values }) =>(
                     <Form className='signup_form'>
                         <Input  name={"name"} placeholderText="Nome"  type={"text"} icon={CiMail} props={values}/>
                         <Input name={"cpf"} placeholderText= "Cpf"  type={"text"} icon={CiLock} props={values}/>
                         <Input name={"email"} placeholderText= "Email"  type={"text"} icon={CiMail} props={values}/>
                         <Input name={"password"}  placeholderText= "Senha" type={"password"} icon={CiLock} props={values}/>
                         <Input name={"password_confirmation"}  placeholderText="Confirme a senha" type={"password"} icon={CiLock} props={values}/>
-                        
                         <Select name="profile" options={profileOptions} />
+                        {response && <AlertFeedback type={responseType!} message={response} />}  
+                        
                         <div  className="button_signup">
                             <Button  disabled={false} >
                                 Salvar
@@ -90,6 +125,9 @@ export function SignUp() {
                     </Form>
                 )}
             </Formik>
+                         
+                            
+                         
         </LayoutForm>    
     </div>  
     );
