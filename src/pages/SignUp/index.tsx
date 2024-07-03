@@ -8,6 +8,7 @@ import { AlertFeedback } from '../../components/AlertFeedback/indext';
 import { Button } from '../../components/Button';
 import { CiLock } from "react-icons/ci";
 import { CiMail } from "react-icons/ci";
+import { Helmet } from 'react-helmet-async';
 import { IUser } from '../../interfaces/User';
 import { Input } from '../../components/Input';
 import { IoArrowBackOutline } from 'react-icons/io5';
@@ -94,8 +95,8 @@ export function SignUp() {
 
     return (
     <div className='signup_container'>
+        <Helmet><title>Cadastrar - Duett</title></Helmet>
         <LayoutForm image={signUp}>
-
             <div className='back_home' onClick={()=>redirectToLogin()}> 
                 <IoArrowBackOutline /> Voltar
             </div>

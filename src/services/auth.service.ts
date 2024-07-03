@@ -1,5 +1,5 @@
-import { Api } from "./api.config";
-import { IChangePassowrdParams } from "../interfaces/ChangePassword";
+import { Api } from "./api.service";
+import { IChangePasswordFormValues } from "../interfaces/ChangePassword";
 import { IErrorResponse } from "../interfaces/ErrorResponse";
 import { IUser } from "../interfaces/User";
 import { IUserContext } from "../interfaces/authProvider";
@@ -36,28 +36,24 @@ export async function signupRequest(user: Partial<IUser>) {
     }
 }
 
-export async function changePasswordRequest({ token, id, old_password, new_password}: IChangePassowrdParams) {
+export async function changePasswordRequest({ token, id, old_password, new_password}: IChangePasswordFormValues) {
     try {
-   
-        const response = await Api.post("user/change-password",  
+        const response = await Api.post("user/change-password", 
             {id, old_password, new_password}, {
                 headers: {
                     'Content-Type': 'application/json', 
                     'Authorization' : `Bearer ${token}`
                 }
             });
-
-           
         return response.data; 
+
     } catch (error:any) {
         if (error.response && error.response.data) {
             return(error.response.data)
         }
-        return(error)
-       
+        return(error)       
     }
 }
-
 
 export function setUserLocaStorage(user:IUserContext){
     localStorage.setItem('user', JSON.stringify(user))

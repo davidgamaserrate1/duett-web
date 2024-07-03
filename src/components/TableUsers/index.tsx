@@ -1,10 +1,10 @@
 import './tableUsers.styles.css';
 
-import { DeleteUserById, GetUsersList, GetUsersListResonse } from '../../services/users.service';
+import { DeleteUserById, GetUsersList } from '../../services/users.service';
+import { GetUsersListResonse, IUser } from '../../interfaces/User';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { useEffect, useState } from 'react';
 
-import { IUser } from '../../interfaces/User';
 import { Modal } from '../Modal';
 import { RiDeleteBin7Fill } from "react-icons/ri";
 import { useAuth } from '../../context/Hooks/useAuth';

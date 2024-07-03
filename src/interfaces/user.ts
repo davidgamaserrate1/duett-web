@@ -6,3 +6,8 @@ export interface IUser {
     password:string,
     profile:string,
 }
+
+export interface GetUsersListResonse {
+    totalPages:number, 
+    content?: IUser[]
+}

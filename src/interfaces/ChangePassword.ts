@@ -1,4 +1,4 @@
-export interface IChangePassowrdParams{
+export interface IChangePasswordFormValues {
     token: string,
     id: string,
     old_password:string,

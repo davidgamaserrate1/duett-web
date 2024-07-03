@@ -8,6 +8,7 @@ import { AlertFeedback } from '../../components/AlertFeedback/indext';
 import { Button } from '../../components/Button';
 import { CiLock } from 'react-icons/ci';
 import { Header } from '../../components/Header';
+import { Helmet } from 'react-helmet-async';
 import { Input } from '../../components/Input';
 import { IoArrowBackOutline } from "react-icons/io5";
 import { LayoutForm } from '../../components/LayoutForm';
@@ -73,9 +74,9 @@ export function ChangePassword() {
     function redirectToHome(){
         navigate('/home')
     }
-
     return (
         <> 
+            <Helmet><title>Alterar senha - Duett</title></Helmet>
             <Header />
             <div className='changePassword_container'>
                 <LayoutForm image={changePasswordImg}>

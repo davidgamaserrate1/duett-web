@@ -1,31 +1,13 @@
-import { Api } from "./api.config";
+import { GetUsersListResonse, IUser } from "../interfaces/User";
 
-export interface IUser {
-    id: string;
-    name: string;
-    profile: string;
-    cpf: string;
-    email: string;
-    password: string;
-}
-
-export interface GetUsersListResonse {
-    totalPages:number, 
-    content?: IUser[]
-}
+import { Api } from "./api.service";
 
 function returnHeaderWithToken(token:string){
-    if(!token)
-        return undefined;
-    
-    return {
-        'Authorization': `Bearer ${token}`
-    }
+    return token ?  { 'Authorization': `Bearer ${token}` } : undefined
 }
 
 export async function GetUsersList(page:number, token:string): Promise<GetUsersListResonse>{
     const headers = returnHeaderWithToken(token)
-    
     const response = await Api.get(`admin/users?page=${page}`, { headers })
     const content:IUser[]= response.data.content
     const totalPages:number  = response.data.totalPages
@@ -38,11 +20,7 @@ export async function GetUsersList(page:number, token:string): Promise<GetUsersL
 
 export async function DeleteUserById(id:string, token:string): Promise<void>{
     const headers = returnHeaderWithToken(token)
-    
-    const response = await Api.delete(`admin/users/delete/${id}`, { headers  })
-    console.log(response)
-    
-    
+    await Api.delete(`admin/users/delete/${id}`, { headers  })
 }
 
 

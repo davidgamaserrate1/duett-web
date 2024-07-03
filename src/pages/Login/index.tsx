@@ -8,6 +8,7 @@ import { AlertFeedback } from '../../components/AlertFeedback/indext';
 import { Button } from '../../components/Button';
 import { CiLock } from "react-icons/ci";
 import { CiMail } from "react-icons/ci";
+import { Helmet } from 'react-helmet-async';
 import { ILogin } from '../../interfaces/LoginRequest';
 import { Input } from '../../components/Input';
 import { LayoutForm } from '../../components/LayoutForm';
@@ -53,6 +54,7 @@ export function Login() {
    
     return (
     <div className='login_container'>
+        <Helmet><title>Login - Duett</title></Helmet>
         <LayoutForm image={loginImg}>
             <TitleComponent title='Seja bem vindo!' subtitle='Informe seus dados  para entrar' />         
             <Formik 
