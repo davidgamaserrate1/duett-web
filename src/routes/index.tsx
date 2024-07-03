@@ -5,6 +5,7 @@ import { AuthProvider } from "../context/AuthProvider"
 import { ChangePassword } from "../pages/ChangePassword"
 import { Home } from "../pages/Home"
 import { Login } from "../pages/Login"
+import { NotFound } from "../components/NotFound"
 import { ProtectedLayout } from "../components/ProtectedLayout"
 import { SignUp } from "../pages/SignUp"
 import { UsersList } from "../pages/UsersList"
@@ -37,6 +38,8 @@ export function RoutesApplication(){
                             </AdminProtectedLayout>
                         }> 
                     </Route>
+
+                    <Route path='*' element={<NotFound/>}> </Route>
                 </Routes>    
             </BrowserRouter>
         </AuthProvider>

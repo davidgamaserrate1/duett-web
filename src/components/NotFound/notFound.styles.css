@@ -1,0 +1,30 @@
+.not_found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background-image: url('../../assets/404-error.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat; 
+  }
+  
+  .not_found_content {
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .not_found_content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .not_found_content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
