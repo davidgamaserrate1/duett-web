@@ -20,7 +20,9 @@
     left: 32px;
 }
 
-
+.home_nav:hover{
+    cursor: pointer;
+}
 
 .profile_admin_settings{
     display: flex;

@@ -31,7 +31,7 @@ export function Header(){
             <div className='home'>
                 <FaHome className='home_icon' />
                 <Navigate url='/home' >
-                    <div> Home</div>
+                    <div className='home_nav'> Home</div>
                 </Navigate>
             </div>
             <div className='profile_admin_settings'>
