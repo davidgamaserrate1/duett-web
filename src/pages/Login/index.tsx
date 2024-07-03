@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 
 import { Form, Formik } from 'formik';
 
-import { AlertFeeback } from '../../components/AltertFeedback/indext';
+import { AlertFeedback } from '../../components/AlertFeedback/indext';
 import { Button } from '../../components/Button';
 import { CiLock } from "react-icons/ci";
 import { CiMail } from "react-icons/ci";
@@ -47,9 +47,7 @@ export function Login() {
 
        }catch(error:any){
             setError(error)
-            setTimeout(() => {
-                setError(undefined);
-            }, 3000);
+            
        }
     }
    
@@ -66,7 +64,7 @@ export function Login() {
                     <Form className='login_form' >
                         <Input placeholderText='Email' name={"email"} type={"text"} icon={CiMail} props={values}/>
                         <Input placeholderText='Senha' name={"password"} type={"password"} icon={CiLock} props={values}/>
-                        { error && <AlertFeeback type={'error'} message={error}/> }
+                        { error && <AlertFeedback type={'error'} message={error}/> }
                         <div className="button_login">
                             <Button  disabled={isSubmitting} >
                                 Entrar

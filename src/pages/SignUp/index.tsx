@@ -4,11 +4,10 @@ import * as Yup from 'yup';
 
 import { Form, Formik } from 'formik';
 
-import { AlertFeeback } from '../../components/AltertFeedback/indext';
 import { Button } from '../../components/Button';
 import { CiLock } from "react-icons/ci";
 import { CiMail } from "react-icons/ci";
-import { IUser } from '../../interfaces/user';
+import { IUser } from '../../interfaces/User';
 import { Input } from '../../components/Input';
 import { LayoutForm } from '../../components/LayoutForm';
 import { Redirect } from '../../components/RedirectText';
