@@ -12,7 +12,7 @@ import { ILogin } from '../../interfaces/LoginRequest';
 import { Input } from '../../components/Input';
 import { LayoutForm } from '../../components/LayoutForm';
 import { Redirect } from '../../components/RedirectText';
-import { Tittle } from '../../components/Tittle';
+import { TitleComponent } from '../../components/Title';
 import loginImg from '../../assets/login.jpg'
 import { useAuth } from '../../context/Hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
@@ -54,7 +54,7 @@ export function Login() {
     return (
     <div className='login_container'>
         <LayoutForm image={loginImg}>
-            <Tittle tittle='Seja bem vindo!' subtittle='Informe seus dados  para entrar' />         
+            <TitleComponent title='Seja bem vindo!' subtitle='Informe seus dados  para entrar' />         
             <Formik 
                 initialValues={initialValues} 
                 onSubmit={handleSubmit}

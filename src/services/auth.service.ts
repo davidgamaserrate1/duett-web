@@ -23,7 +23,7 @@ export async function loginRequest(email: string, password: string) {
     }
 }
 
-export async function signupRequest(user: IUser) {
+export async function signupRequest(user: Partial<IUser>) {
     const response = await Api.post("auth/register", user);
     console.log('response.data', response.data)  
     return response.data; 

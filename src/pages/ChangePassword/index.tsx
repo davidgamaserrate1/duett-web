@@ -11,7 +11,7 @@ import { Header } from '../../components/Header';
 import { Input } from '../../components/Input';
 import { IoArrowBackOutline } from "react-icons/io5";
 import { LayoutForm } from '../../components/LayoutForm';
-import { Tittle } from '../../components/Tittle';
+import { TitleComponent } from '../../components/Title';
 import changePasswordImg from '../../assets/forgotPassword.jpg';
 import { changePasswordRequest } from '../../services/auth.service';
 import { useAuth } from '../../context/Hooks/useAuth';
@@ -79,7 +79,7 @@ export function ChangePassword() {
                     <div className='back_home' onClick={()=>redirectToHome()}> 
                         <IoArrowBackOutline /> voltar 
                     </div>
-                    <Tittle tittle='Alterar senha' subtittle='Confirme sua senha atual e insira uma nova' />                   
+                    <TitleComponent title='Alterar senha' subtitle='Confirme sua senha atual e insira uma nova' />                   
                     <Formik
                         initialValues={initialValues}
                         onSubmit={handleSubmit}

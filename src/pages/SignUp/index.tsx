@@ -12,7 +12,7 @@ import { Input } from '../../components/Input';
 import { LayoutForm } from '../../components/LayoutForm';
 import { Redirect } from '../../components/RedirectText';
 import { Select } from '../../components/Select';
-import { Tittle } from '../../components/Tittle';
+import { TitleComponent } from '../../components/Title';
 import signUp from '../../assets/signUp.jpg'
 import { signupRequest } from '../../services/auth.service';
 
@@ -41,14 +41,13 @@ export function SignUp() {
             .required("Informe sua senha"),
         password_confirmation: Yup
             .string()
-            .oneOf([Yup.ref('password')], "As senhas devem ser iguais")
             .required("Confirme sua senha"),
         profile: Yup
             .string()
             .required("Por, favor Selecione um perfil"),  
     });
 
-    async function handleSubmit  (user: IUser ) {
+    async function handleSubmit  (user: Partial<IUser> ) {
         const RegisterForm ={
             name : user.name,
             cpf: user.cpf,
@@ -67,7 +66,7 @@ export function SignUp() {
     return (
     <div className='signup_container'>
         <LayoutForm image={signUp}>
-            <Tittle tittle='Cadastre-se' />     
+            <TitleComponent title='Cadastre-se' />     
             <Formik 
                 initialValues={initialValues} 
                 onSubmit={handleSubmit}

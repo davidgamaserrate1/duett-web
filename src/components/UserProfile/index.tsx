@@ -9,11 +9,10 @@ import { UserProfileProps } from "./userProfile.types"
 import { useAuth } from '../../context/Hooks/useAuth'
 import { useNavigate } from 'react-router-dom'
 
-const  user_name = 'David'
-
 export function UserProfile({ openSettings, changeSettings }: UserProfileProps){ 
     const navigate = useNavigate()
     const auth = useAuth()
+    const user_name = auth.name 
 
     function logout () {
         auth.logout()
